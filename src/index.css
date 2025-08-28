@@ -1,0 +1,64 @@
+:root {
+  color-scheme: light dark;
+  --background-color-light: #d1d1d1;
+  --color-light: #303030;
+  --background-color-dark: #212121;
+  --color-dark: #d1d1d1;
+  --accent-color: #0080A5;
+  --accent-color-2: #0095A3;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  margin: auto;
+  max-width: 38rem;
+  padding: 2rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--background-color-dark);
+    color: var(--color-dark);
+  }
+  button {
+    border-color: var(--accent-color-2);
+    background-color: #303030;
+    color: var(--accent-color);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--background-color-light);
+    color: var(--color-light);
+  }
+  button {
+    border-color: var(--accent-color);
+    background-color: #212121;
+    color: var(--accent-color-2);
+  }
+}
+
+.button-container {
+  justify-self: center;
+  margin-top: 10px;
+}
+
+button {
+  border-radius: 12px;
+  padding: 6px;
+}
+
+.node-statement, #node-version {
+  color: var(--accent-color);
+}
+
+.chromium-statement, #chrome-version {
+  color: var(--accent-color-2);
+}
+
+.electron-statement, #electron-version {
+  color: var(--accent-color);
+}
+
