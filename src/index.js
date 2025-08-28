@@ -1,16 +1,26 @@
-const { app, BrowserWindow } = require('electron');
-const path = require('node:path');
+// Modules to control application life and create native browser window
+const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron')
+const path = require('node:path')
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
+ipcMain.handle('dark-mode:toggle', ()=>{
+  if (nativeTheme.shouldUseDarkColors) {
+    nativeTheme.themeSource = 'light'
+  } else {
+    nativeTheme.themeSource = 'dark'
+  }
+  return nativeTheme.shouldUseDarkColors
+});
+
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
-    height: 600,
+    height: 1000,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
@@ -20,7 +30,7 @@ const createWindow = () => {
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
