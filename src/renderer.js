@@ -11,3 +11,7 @@ document.getElementById('toggle-theme').addEventListener('click', async ()=>{
   document.getElementById('theme-source').innerHTML = isDarkMode ? 'Dark' : 'Light'
 });
 
+document.getElementById('toggle-text').addEventListener('click', async()=>{
+    var randomColor = Math.floor(Math.random()*16777215).toString(16);
+    document.getElementById('toggle-text').style.color = '#'+randomColor;
+})
