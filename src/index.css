@@ -27,6 +27,9 @@ body {
     background-color: #303030;
     color: var(--accent-color);
   }
+  button:hover {
+    background-color: #212121;
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -36,8 +39,12 @@ body {
   }
   button {
     border-color: var(--accent-color);
+    box-shadow: 10px 10px 50px rgb(128, 128, 128);
     background-color: #212121;
     color: var(--accent-color-2);
+  }
+  button:hover {
+    background-color: #303030;
   }
 }
 
